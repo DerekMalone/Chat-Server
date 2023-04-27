@@ -63,8 +63,8 @@ class HandleRequests(BaseHTTPRequestHandler):
             )
 
         result = ""
-        # for choice in response.choices:
-        #     result += choice.message.content
+        for choice in response.choices:
+            result += choice.message.content
 
         self.wfile.write(json.dumps(result).encode())
 
