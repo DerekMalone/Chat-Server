@@ -62,6 +62,9 @@ class HandleRequests(BaseHTTPRequestHandler):
                 model="gpt-3.5-turbo", messages=post_body
             )
 
+        # This chunk allows us to access what is being returned to us from open.ai.
+        # It drills into the array that stores the response and targets the key we need
+        # and assigns it to a variable so we can pass that to the front end.
         result = ""
         for choice in response.choices:
             result += choice.message.content
